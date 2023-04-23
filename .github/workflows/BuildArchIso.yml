@@ -16,7 +16,7 @@ jobs:
         passwd -d builduser
         pacman-key --init
         pacman-key --populate
-        pacman -Syu --noconfirm --needed reflector curl
+        pacman -Syu --noconfirm --needed reflector curl archiso wget
         reflector --country $(curl ipv4.myip.wtf/text/country) --sort rate -n 5 --save /etc/pacman.d/mirrorlist
         pacman -S --noconfirm --needed sudo git base-devel
         printf 'builduser ALL=(ALL) ALL\\n' | tee -a /etc/sudoers
