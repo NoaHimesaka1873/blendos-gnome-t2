@@ -4,6 +4,7 @@ arch-install-scripts
 archinstall
 b43-fwcutter
 base
+bolt
 bash
 bash-completion
 bind
@@ -30,7 +31,7 @@ irssi
 less
 libfido2
 libusb-compat
-linux
+linux-t2
 linux-atm
 linux-firmware
 linux-firmware-marvell
@@ -113,9 +114,9 @@ plymouth-blend
 # OS installation and tweaks
 filesystem-blend
 lsb-release-blend
-blend-inst-git
+blend-inst-t2
 python-yaml
-jade-gui
+jade-gui-t2
 
 # Keyring
 blend-keyring
@@ -132,3 +133,9 @@ gnome-software
 gnome-software-packagekit-plugin
 firefox
 flatpak
+
+# T2Linux stuffs
+apple-t2-audio-config
+t2fand
+touchbard
+
