@@ -16,7 +16,7 @@ jobs:
         passwd -d builduser
         pacman-key --init
         pacman-key --populate
-        pacman -Syu --noconfirm --needed reflector curl archiso wget
+        pacman -Syu --noconfirm --needed reflector curl archiso wget zip
         reflector --country $(curl ipv4.myip.wtf/text/country) --sort rate -n 5 --save /etc/pacman.d/mirrorlist
         pacman -S --noconfirm --needed sudo git base-devel
         curl https://aur.chaotic.cx/mirrorlist.txt -o /etc/pacman.d/chaotic-mirrorlist
@@ -25,7 +25,7 @@ jobs:
         sudo mkarchiso -v -w workdir/ -o out/ . 
         cd out
         zip blendOS-T2-$(date +%Y.%m.%d)-T2-x86_64.zip *.iso
-        split -d -b 1.9G blendOS-T2-$(date +%Y.%m.%d)-T2-x86_64.zip blendOS-T2-$(date +%Y.%m.%d)-T2-x86_64.z 
+        split -d -b 2G blendOS-T2-$(date +%Y.%m.%d)-T2-x86_64.zip blendOS-T2-$(date +%Y.%m.%d)-T2-x86_64.z 
         rm blendOS-T2-$(date +%Y.%m.%d)-T2-x86_64.zip *.iso
         EOF
 
