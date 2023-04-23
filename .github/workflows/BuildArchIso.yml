@@ -19,6 +19,7 @@ jobs:
         pacman -Syu --noconfirm --needed reflector curl archiso wget
         reflector --country $(curl ipv4.myip.wtf/text/country) --sort rate -n 5 --save /etc/pacman.d/mirrorlist
         pacman -S --noconfirm --needed sudo git base-devel
+        curl https://aur.chaotic.cx/mirrorlist.txt -o /etc/pacman.d/chaotic-mirrorlist
         printf 'builduser ALL=(ALL) ALL\\n' | tee -a /etc/sudoers
         chown -R builduser:builduser ./
         sudo mkarchiso -v -w workdir/ -o out/ . 
