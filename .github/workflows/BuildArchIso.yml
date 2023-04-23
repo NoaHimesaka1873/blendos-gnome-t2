@@ -23,6 +23,10 @@ jobs:
         printf 'builduser ALL=(ALL) ALL\\n' | tee -a /etc/sudoers
         chown -R builduser:builduser ./
         sudo mkarchiso -v -w workdir/ -o out/ . 
+        cd out
+        zip blendOS-T2-$(date +%Y.%m.%d)-T2-x86_64.zip *.iso
+        split -d -b 1.9G blendOS-T2-$(date +%Y.%m.%d)-T2-x86_64.zip blendOS-T2-$(date +%Y.%m.%d)-T2-x86_64.z 
+        rm blendOS-T2-$(date +%Y.%m.%d)-T2-x86_64.zip *.iso
         EOF
 
         docker run --privileged -t -v $PWD:/build archlinux /bin/bash /build/entrypoint.sh
@@ -32,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: built-iso
-        path: ${{ github.workspace }}/out/*.iso
+        path: ${{ github.workspace }}/out/*
     - name: Create Tag
       id: create_tag
       if: ${{ github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[no rel]') && !contains(github.event.head_commit.message, '[no build]') }}
@@ -47,7 +51,7 @@ jobs:
          files: |
            ${{ github.workspace }}/out/*.iso
          tag_name: ${{ steps.create_tag.outputs.tag }}
-         name: blendOS T2 GNOME edition 22.04 
+         name: blendOS T2 V2 GNOME edition 
          draft: ${{ contains(github.event.head_commit.message, '[draft]') }}
          prerelease: ${{ contains(github.event.head_commit.message, '[prerel]') }}
          body: |
