@@ -49,7 +49,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
          files: |
-           ${{ github.workspace }}/out/*.iso
+           ${{ github.workspace }}/out/*
          tag_name: ${{ steps.create_tag.outputs.tag }}
          name: blendOS T2 V2 GNOME edition 
          draft: ${{ contains(github.event.head_commit.message, '[draft]') }}
