@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
-iso_name="blendOS for Macs with T2 chip"
+iso_name="blendOS-T2"
 iso_label="BLENDOS_T2_$(date +%Y%m)"
 iso_publisher="blendOS <https://blendos.co> in collaboration with T2Linux <https://t2linux.org>"
 iso_application="blendOS Live/Rescue CD for Macs with T2 chip"
