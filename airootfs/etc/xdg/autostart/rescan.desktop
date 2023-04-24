@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Startup script
+GenericName=A script that runs at Gnome startup
+Comment=Runs the script in Exec path
+Exec=/pci-rescan.sh
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true

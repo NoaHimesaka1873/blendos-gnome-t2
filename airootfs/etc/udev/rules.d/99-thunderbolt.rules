@@ -1,1 +1,1 @@
-https://github.com/NoaHimesaka1873/blendos-gnome-t2
+ACTION=="add", SUBSYSTEM=="thunderbolt", ATTR{authorized}=="0", ATTR{authorized}="1"
