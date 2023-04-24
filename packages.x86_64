@@ -86,9 +86,6 @@ wvdial
 xfsprogs
 xl2tpd
 
-### On-ISO drivers
-nvidia
-
 ### blendOS
 # Core packages
 blend-git
@@ -97,6 +94,7 @@ blend-web-store-git
 
 # Fonts
 noto-fonts
+noto-fonts-cjk
 noto-fonts-emoji
 
 # Background and services
